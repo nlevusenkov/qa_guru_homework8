@@ -25,20 +25,21 @@ class Github:
         browser.element('[data-testid="issue-pr-title-link"]').should(have.text(value))
 
     # через with
-    def open_github2(self):
+class Git:
+    def open_github(self):
         with allure.step('Открываем github'):
             browser.open("https://github.com")
 
-    def search_repository2(self):
+    def search_repository(self):
         with allure.step('ищем свой репозиторий'):
             browser.element("[data-target='qbsearch-input.inputButton']").click()
             browser.element("#query-builder-test").type('nlevusenkov/qa_guru_homework5').press_enter()
 
-    def go_to_repository2(self):
+    def go_to_repository(self):
         with allure.step('Переходим в свой репозиторий'):
             browser.element("[href='/nlevusenkov/qa_guru_homework5']").click()
 
-    def open_issue2(self):
+    def open_issue(self):
         with allure.step('Переходим во вкладку issue'):
             browser.element('#issues-tab').click()
 

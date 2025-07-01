@@ -1,7 +1,7 @@
 import allure
 from allure_commons.types import Severity
 from selene import browser, have
-from models.models import Github
+from models.models import Github, Git
 
 @allure.tag("web")
 @allure.severity(Severity.BLOCKER)
@@ -24,17 +24,17 @@ def test_issue_name_selene():
 @allure.story("Проверка названия issue с шагами аллюра with")
 @allure.link("https://github.com", name="Testing")
 def test_issue_name_with_allure_step():
-    github = Github()
+    git = Git()
     with allure.step('Открываем github'):
-        github.open_github2()
+        git.open_github()
     with allure.step('ищем свой репозиторий'):
-        github.search_repository2()
+        git.search_repository()
     with allure.step('Переходим в свой репозиторий'):
-        github.go_to_repository2()
+        git.go_to_repository()
     with allure.step('Переходим во вкладку issue'):
-        github.open_issue2()
+        git.open_issue()
     with allure.step('Проверяем имя issue'):
-        github.find_issue_name('test1')
+        git.find_issue_name('test')
 
 
 @allure.tag("web")
